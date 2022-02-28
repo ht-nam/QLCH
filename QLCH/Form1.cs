@@ -33,7 +33,7 @@ namespace QLCH
             InitializeComponent();
             panel2.Hide();
             //Nam: DESKTOP-KNN7K79
-            //Vinh: ahiaiahhahahaaha
+            //Vinh: changing
             string cnt = "Data Source = DESKTOP-KNN7K79; Initial Catalog = QLCH; Integrated Security = True";
             conn = new SqlConnection(cnt);
             //string query = "Select * from ";
