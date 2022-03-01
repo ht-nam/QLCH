@@ -31,15 +31,7 @@ namespace QLCH
         public Form1()
         {
             InitializeComponent();
-            panel2.Hide();
-            //Nam: DESKTOP-KNN7K79
-            //Vinh: DESKTOP-IKJI0OQ\SQLEXPRESS
-            string cnt = "Data Source = DESKTOP-KNN7K79; Initial Catalog = QLCH; Integrated Security = True";
-            conn = new SqlConnection(cnt);
-            //string query = "Select * from ";
-            //adapter = new SqlDataAdapter(query, conn);
-            //adapter.Fill(db);
-            //dataGridView1.DataSource = db;
+            GetData();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -53,9 +45,25 @@ namespace QLCH
                     throw new Exception();
                 }
             }
-            catch (Exception ex) {
+            catch (Exception) {
                 MessageBox.Show("Connection error");
             }
+        }
+
+        private void GetData()
+        {
+            //Nam: DESKTOP-KNN7K79
+            //Vinh: DESKTOP-IKJI0OQ\SQLEXPRESS
+            string cnt = "Data Source = DESKTOP-KNN7K79; Initial Catalog = QLCH; Integrated Security = True";
+            conn = new SqlConnection(cnt);
+            string query = "Select idHD, date, sum(price * slSP) from HoaDon_SanPham hs join HoaDon hd on hs.idHD = hd.id join SanPham sp on hs.idSp = sp.id group by idHD, date";
+            //string query = "select * from HoaDon";
+            adapter = new SqlDataAdapter(query, conn);
+            db = new DataTable();
+            adapter.Fill(db);
+            dataGridView1.DataSource = db;
+            dataGridView1.BackgroundColor = Color.FromArgb(255, 251, 215, 227);
+            panel2.Hide();
         }
 
         private void btLogin_Click(object sender, EventArgs e)
@@ -65,6 +73,7 @@ namespace QLCH
                 MessageBox.Show("Wrong id or password");
             } else
             {
+                MessageBox.Show("Success");
                 panel1.Hide();
                 panel2.Show();
             }
