@@ -23,11 +23,10 @@ namespace QLCH
         };
         IFirebaseClient client;
         string pw = "";
-
+        HoaDon hd = new HoaDon();
         SqlConnection conn = null;
         SqlDataAdapter adapter = null;
         DataTable db = null;
-
         public Form1()
         {
             InitializeComponent();
@@ -54,7 +53,7 @@ namespace QLCH
         {
             //Nam: DESKTOP-KNN7K79
             //Vinh: DESKTOP-IKJI0OQ\SQLEXPRESS
-            string cnt = "Data Source = DESKTOP-KNN7K79; Initial Catalog = QLCH; Integrated Security = True";
+            string cnt = "Data Source = DESKTOP-IKJI0OQ\\SQLEXPRESS; Initial Catalog = QLCH; Integrated Security = True";
             conn = new SqlConnection(cnt);
             string query = "Select idHD, date, sum(price * slSP) from HoaDon_SanPham hs join HoaDon hd on hs.idHD = hd.id join SanPham sp on hs.idSp = sp.id group by idHD, date";
             //string query = "select * from HoaDon";
@@ -100,6 +99,12 @@ namespace QLCH
             {
                 btLogin.PerformClick();
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            hd.ShowDialog();
+            //hd.button1_Click(sender, e);
         }
     }
 }
