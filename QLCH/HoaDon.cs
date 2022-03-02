@@ -13,10 +13,23 @@ namespace QLCH
 {
     public partial class HoaDon : Form
     {
-        string cnt = "Data Source = DESKTOP-IKJI0OQ\\SQLEXPRESS; Initial Catalog = QLCH; Integrated Security = True";
-        public HoaDon()
+        //Nam: DESKTOP-KNN7K79
+        //Vinh: DESKTOP-IKJI0OQ\SQLEXPRESS
+        string cnt = "Data Source = DESKTOP-KNN7K79; Initial Catalog = QLCH; Integrated Security = True";
+        List<SanPham> sanPhams = new List<SanPham>();
+        List<SelectedSP> selectedSPs = new List<SelectedSP>();
+
+        public HoaDon(List<SanPham> sps)
         {
             InitializeComponent();
+            sanPhams = sps;
+            dataGridView1.DataSource = selectedSPs;
+            foreach(SanPham sp in sanPhams)
+            {
+                cbbTenHang.Items.Add(sp);
+            }
+            cbbTenHang.DisplayMember = "name";
+            tbSL.Enabled = false;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -29,21 +42,14 @@ namespace QLCH
             using (SqlConnection connection = new SqlConnection(cnt))
             {
                 string saveBill = "INSERT into SanPham (id, name, quantity, price) VALUES (@id, @name, @quantity, @price)";
-                using(SqlCommand cmd = new SqlCommand())
+                using (SqlCommand cmd = new SqlCommand())
                 {
-                    cmd.Connection = connection;
-                    cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = saveBill;
-                    cmd.Parameters.AddWithValue("@id", idDonHang);
-                    cmd.Parameters.AddWithValue("@name", tenHang);
-                    cmd.Parameters.AddWithValue("@quantity", soLuong);
-                    cmd.Parameters.AddWithValue("@price", donGia);
                     try
                     {
                         connection.Open();
                         cmd.ExecuteNonQuery();
                     }
-                    catch(SqlException ex)
+                    catch (SqlException ex)
                     {
                         MessageBox.Show(ex.ToString());
                     }
@@ -54,5 +60,42 @@ namespace QLCH
                 }
             }
         }
+
+        private void cbbTenHang_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbbTenHang.SelectedIndex > -1)
+                tbSL.Enabled = true;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            bool check = int.TryParse(tbSL.Text, out int sl);
+            if (sl > 0 && check == true)
+            {
+                SanPham a = cbbTenHang.SelectedItem as SanPham;
+                int i = selectedSPs.FindIndex(sp => sp.Name == a.Name);
+                if (i == -1)
+                {
+                    selectedSPs.Add(new SelectedSP() { Name = a.Name, ID = a.ID, Qty = Convert.ToInt32(tbSL.Text), Price = Convert.ToInt32(tbSL.Text) * a.Price });
+                } else
+                {
+                    selectedSPs[i].Qty += sl;
+                    selectedSPs[i].Price = selectedSPs[i].Qty * a.Price;
+                }
+                dataGridView1.DataSource = null;
+                dataGridView1.DataSource = selectedSPs;
+            } else
+            {
+                MessageBox.Show("Số lượng không hợp lệ");
+            }
+        }
+    }
+
+    public class SelectedSP
+    {
+        public string ID { get; set; }
+        public string Name { get; set; }
+        public int Qty { get; set; }
+        public int Price { get; set; }
     }
 }

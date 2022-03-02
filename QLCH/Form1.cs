@@ -24,26 +24,37 @@ namespace QLCH
         };
         IFirebaseClient client;
         string pw = "";
-        HoaDon hd = new HoaDon();
+        HoaDon hd = null;
         SqlConnection conn = null;
         SqlDataAdapter adapter = null;
         DataTable db = null;
+        List<SanPham> sanPhams = new List<SanPham>();
+
         public Form1()
         {
             InitializeComponent();
             GetData();
-        }
 
+        }
+        ~Form1()
+        {
+            if (conn != null && conn.State == ConnectionState.Open)
+            {
+                conn.Close();
+            }
+        }
         private void Form1_Load(object sender, EventArgs e)
         {
             try
             {
+
                 client = new FirebaseClient(fbCf);
                 FirebaseResponse testCon = client.Get("Store");
                 if (testCon.StatusCode.ToString() != "OK")
                 {
                     throw new Exception();
                 }
+
             }
             catch (Exception)
             {
@@ -59,6 +70,7 @@ namespace QLCH
                 //Vinh: DESKTOP-IKJI0OQ\SQLEXPRESS
                 string cnt = "Data Source = DESKTOP-KNN7K79; Initial Catalog = QLCH; Integrated Security = True";
                 conn = new SqlConnection(cnt);
+                conn.Open();
                 string query = "Select idHD as N'Mã hóa đơn', date as N'Ngày', sum(price * slSP) as N'Thành tiền' from HoaDon_SanPham hs join HoaDon hd on hs.idHD = hd.id join SanPham sp on hs.idSp = sp.id group by idHD, date";
                 //string query = "select * from HoaDon";
                 adapter = new SqlDataAdapter(query, conn);
@@ -67,6 +79,18 @@ namespace QLCH
                 dataGridView1.DataSource = db;
                 dataGridView1.BackgroundColor = Color.FromArgb(255, 251, 215, 227);
                 panel2.Hide();
+
+
+                using (SqlCommand cmd = new SqlCommand() { })
+                {
+                    cmd.CommandText = "Select * from SanPham";
+                    cmd.Connection = conn;
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        sanPhams.Add(new SanPham() { ID=reader["id"].ToString(), Name = (string)reader["name"].ToString(), Price = Convert.ToInt32(reader["price"].ToString()) });
+                    }
+                }
             }
             catch (Exception)
             {
@@ -119,7 +143,10 @@ namespace QLCH
 
         private void button1_Click(object sender, EventArgs e)
         {
+            hd = new HoaDon(sanPhams);
             hd.ShowDialog();
+            db.Clear();
+            adapter.Fill(db);
         }
     }
 }
