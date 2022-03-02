@@ -27,7 +27,11 @@ namespace QLCH
         HoaDon hd = null;
         SqlConnection conn = null;
         SqlDataAdapter adapter = null;
+        SqlCommand cmd = null;
         DataTable db = null;
+        Bitmap bitmap;
+        System.Data.DataTable dt;
+        string ID;
         List<SanPham> sanPhams = new List<SanPham>();
 
         public Form1()
@@ -68,7 +72,7 @@ namespace QLCH
             {
                 //Nam: DESKTOP-KNN7K79
                 //Vinh: DESKTOP-IKJI0OQ\SQLEXPRESS
-                string cnt = "Data Source = DESKTOP-KNN7K79; Initial Catalog = QLCH; Integrated Security = True";
+                string cnt = "Data Source = DESKTOP-IKJI0OQ\\SQLEXPRESS; Initial Catalog = QLCH; Integrated Security = True";
                 conn = new SqlConnection(cnt);
                 conn.Open();
                 string query = "Select idHD as N'Mã hóa đơn', date as N'Ngày', sum(price * slSP) as N'Thành tiền' from HoaDon_SanPham hs join HoaDon hd on hs.idHD = hd.id join SanPham sp on hs.idSp = sp.id group by idHD, date";
@@ -145,6 +149,57 @@ namespace QLCH
         {
             hd = new HoaDon(sanPhams);
             hd.ShowDialog();
+            //db.Clear();
+            //adapter.Fill(db);
+        }
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                conn.Open();
+                cmd = new SqlCommand("delete from HoaDon_SanPham where idHD = '" + ID + "'",conn);
+                cmd.ExecuteNonQuery();
+                cmd = new SqlCommand("delete from HoaDon where id = '" + ID + "'", conn);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                MessageBox.Show("Da xoa thanh cong ");
+                db.Clear();
+                adapter.Fill(db);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            ID = dataGridView1.SelectedCells[0].OwningRow.Cells[0].Value.ToString();
+            button2.Enabled = true;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            panel2.Hide();
+            tbID.Text = "";
+            tbPW.Text = "";
+            panel1.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            int height = dataGridView1.Height;
+            dataGridView1.Height = dataGridView1.RowCount * dataGridView1.RowTemplate.Height * 2;
+            bitmap = new Bitmap(dataGridView1.Width, dataGridView1.Height);
+            dataGridView1.DrawToBitmap(bitmap, new Rectangle(0, 0, dataGridView1.Width, dataGridView1.Height));
+            printPreviewDialog1.PrintPreviewControl.Zoom = 1;
+            printPreviewDialog1.ShowDialog();
+            dataGridView1.Height = height;
+        }
+
+        private void printDocument3_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            e.Graphics.DrawImage(bitmap, 0, 0);
             db.Clear();
             adapter.Fill(db);
         }
