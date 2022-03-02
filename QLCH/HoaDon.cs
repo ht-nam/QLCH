@@ -13,14 +13,10 @@ namespace QLCH
 {
     public partial class HoaDon : Form
     {
-        SqlConnection sc;
-        SqlCommand cmd;
-        SqlDataAdapter adpt;
+        string cnt = "Data Source = DESKTOP-IKJI0OQ\\SQLEXPRESS; Initial Catalog = QLCH; Integrated Security = True";
         public HoaDon()
         {
             InitializeComponent();
-            string cnt = @"Data Source = DESKTOP-IKJI0OQ\SQLEXPRESS; Initial Catalog = QLCH; Integrated Security = True";
-            sc = new SqlConnection(cnt);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -28,31 +24,35 @@ namespace QLCH
             this.Hide();
         }
 
-        public void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            if(idDonHang.Text == "" || tenHang.Text == "" || int.Parse(soLuong.Text) == 0 || int.Parse(donGia.Text) == 0)
+            using (SqlConnection connection = new SqlConnection(cnt))
             {
-                MessageBox.Show("Hay dien vao form");
-            }
-            else
-            {
-                try
+                string saveBill = "INSERT into SanPham (id, name, quantity, price) VALUES (@id, @name, @quantity, @price)";
+                using(SqlCommand cmd = new SqlCommand())
                 {
-                    sc.Open();
-                    cmd = new SqlCommand("insert into SanPham (id, name, quantity, price) values ('"+idDonHang.Text+"','" + tenHang.Text + "','"+ int.Parse(soLuong.Text) + "','"+ int.Parse(donGia.Text) + "'",sc);
-                    cmd.ExecuteNonQuery();
-                    sc.Close();
-                    MessageBox.Show("Da them thanh cong");
-
-                }catch(Exception ex)
-                {
-                    MessageBox.Show(ex.ToString());
+                    cmd.Connection = connection;
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = saveBill;
+                    cmd.Parameters.AddWithValue("@id", idDonHang);
+                    cmd.Parameters.AddWithValue("@name", tenHang);
+                    cmd.Parameters.AddWithValue("@quantity", soLuong);
+                    cmd.Parameters.AddWithValue("@price", donGia);
+                    try
+                    {
+                        connection.Open();
+                        cmd.ExecuteNonQuery();
+                    }
+                    catch(SqlException ex)
+                    {
+                        MessageBox.Show(ex.ToString());
+                    }
+                    finally
+                    {
+                        connection.Close();
+                    }
                 }
             }
         }
-        //public void display()
-        //{
-
-        //}
     }
 }

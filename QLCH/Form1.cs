@@ -104,7 +104,6 @@ namespace QLCH
         private void button1_Click(object sender, EventArgs e)
         {
             hd.ShowDialog();
-            //hd.button1_Click(sender, e);
         }
     }
 }
