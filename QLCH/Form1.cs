@@ -38,7 +38,7 @@ namespace QLCH
         {
             InitializeComponent();
             GetData();
-
+            panel2.Hide();
         }
         ~Form1()
         {
@@ -72,11 +72,14 @@ namespace QLCH
             {
                 //Nam: DESKTOP-KNN7K79
                 //Vinh: DESKTOP-IKJI0OQ\SQLEXPRESS
-                string cnt = "Data Source = DESKTOP-IKJI0OQ\\SQLEXPRESS; Initial Catalog = QLCH; Integrated Security = True";
+                string cnt = "Data Source = DESKTOP-KNN7K79; Initial Catalog = QLCH; Integrated Security = True";
                 conn = new SqlConnection(cnt);
                 conn.Open();
+
+                MessageBox.Show("a");
                 string query = "Select idHD as N'Mã hóa đơn', date as N'Ngày', sum(price * slSP) as N'Thành tiền' from HoaDon_SanPham hs join HoaDon hd on hs.idHD = hd.id join SanPham sp on hs.idSp = sp.id group by idHD, date";
                 //string query = "select * from HoaDon";
+
                 adapter = new SqlDataAdapter(query, conn);
                 db = new DataTable();
                 adapter.Fill(db);
