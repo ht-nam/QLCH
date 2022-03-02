@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Windows.Forms;
@@ -44,25 +45,33 @@ namespace QLCH
                     throw new Exception();
                 }
             }
-            catch (Exception) {
+            catch (Exception)
+            {
                 MessageBox.Show("Connection error");
             }
         }
 
         private void GetData()
         {
-            //Nam: DESKTOP-KNN7K79
-            //Vinh: DESKTOP-IKJI0OQ\SQLEXPRESS
-            string cnt = "Data Source = DESKTOP-IKJI0OQ\\SQLEXPRESS; Initial Catalog = QLCH; Integrated Security = True";
-            conn = new SqlConnection(cnt);
-            string query = "Select idHD, date, sum(price * slSP) from HoaDon_SanPham hs join HoaDon hd on hs.idHD = hd.id join SanPham sp on hs.idSp = sp.id group by idHD, date";
-            //string query = "select * from HoaDon";
-            adapter = new SqlDataAdapter(query, conn);
-            db = new DataTable();
-            adapter.Fill(db);
-            dataGridView1.DataSource = db;
-            dataGridView1.BackgroundColor = Color.FromArgb(255, 251, 215, 227);
-            panel2.Hide();
+            try
+            {
+                //Nam: DESKTOP-KNN7K79
+                //Vinh: DESKTOP-IKJI0OQ\SQLEXPRESS
+                string cnt = "Data Source = DESKTOP-KNN7K79; Initial Catalog = QLCH; Integrated Security = True";
+                conn = new SqlConnection(cnt);
+                string query = "Select idHD as N'Mã hóa đơn', date as N'Ngày', sum(price * slSP) as N'Thành tiền' from HoaDon_SanPham hs join HoaDon hd on hs.idHD = hd.id join SanPham sp on hs.idSp = sp.id group by idHD, date";
+                //string query = "select * from HoaDon";
+                adapter = new SqlDataAdapter(query, conn);
+                db = new DataTable();
+                adapter.Fill(db);
+                dataGridView1.DataSource = db;
+                dataGridView1.BackgroundColor = Color.FromArgb(255, 251, 215, 227);
+                panel2.Hide();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Cannot connect to database");
+            }
         }
 
         private void btLogin_Click(object sender, EventArgs e)
@@ -70,7 +79,8 @@ namespace QLCH
             if (pw != tbPW.Text)
             {
                 MessageBox.Show("Wrong id or password");
-            } else
+            }
+            else
             {
                 MessageBox.Show("Success");
                 panel1.Hide();
@@ -80,16 +90,22 @@ namespace QLCH
 
         private void tbID_Leave(object sender, EventArgs e)
         {
-            try
+            if (tbID.Text != "")
             {
-                FirebaseResponse response = client.Get("Store/" + tbID.Text);
-                if (response.StatusCode.ToString() != "OK")
-                    throw new Exception();
-                pw = response.ResultAs<string>();
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Connection error");
+                try
+                {
+                    new Thread(() =>
+                   {
+                       FirebaseResponse response = client.Get("Store/" + tbID.Text);
+                       if (response.StatusCode.ToString() != "OK")
+                           throw new Exception();
+                       pw = response.ResultAs<string>();
+                   }).Start();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Connection error");
+                }
             }
         }
 
