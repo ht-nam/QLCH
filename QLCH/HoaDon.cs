@@ -18,13 +18,16 @@ namespace QLCH
         string cnt = "Data Source = DESKTOP-KNN7K79; Initial Catalog = QLCH; Integrated Security = True";
         List<SanPham> sanPhams = new List<SanPham>();
         List<SelectedSP> selectedSPs = new List<SelectedSP>();
+        List<string> addedHoaDon = new List<string>();
 
         public HoaDon(List<SanPham> sps)
         {
             InitializeComponent();
             sanPhams = sps;
             dataGridView1.DataSource = selectedSPs;
-            foreach(SanPham sp in sanPhams)
+            dataGridView1.AutoGenerateColumns = true;
+            dataGridView1.Columns["ID"].Visible = false;
+            foreach (SanPham sp in sanPhams)
             {
                 cbbTenHang.Items.Add(sp);
             }
@@ -39,19 +42,35 @@ namespace QLCH
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //DateTime dt = DateTime.Now;
+            //string da = dt.ToString("yyyy-MM-dd HH:mm:ss") ;
             using (SqlConnection connection = new SqlConnection(cnt))
             {
-                string saveBill = "INSERT into SanPham (id, name, quantity, price) VALUES (@id, @name, @quantity, @price)";
-                using (SqlCommand cmd = new SqlCommand())
+                string addHD = String.Format("INSERT into HoaDon (id, date) VALUES ('{0}', '{1}')", tbidDH.Text, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+                using (SqlCommand cmd = new SqlCommand(addHD, connection))
                 {
                     try
                     {
                         connection.Open();
                         cmd.ExecuteNonQuery();
+
+                        foreach (SelectedSP sp in selectedSPs)
+                        {
+                            string addHDSP = String.Format("INSERT into HoaDon_SanPham (idHD, idSP, slSP) VALUES ('{0}', '{1}', {2})", tbidDH.Text, sp.ID, sp.Qty);
+                            cmd.CommandText = addHDSP;
+                            cmd.ExecuteNonQuery();
+                        }
+
+                        MessageBox.Show("Thêm hóa đơn thành công");
+                        selectedSPs.Clear();
                     }
-                    catch (SqlException ex)
+                    catch (SqlException)
                     {
-                        MessageBox.Show(ex.ToString());
+                        MessageBox.Show("Thêm hóa đơn không thành công");
+                        cmd.CommandText = "Delete HoaDon where id = '" + tbidDH + "'";
+                        cmd.ExecuteNonQuery();
+                        cmd.CommandText = "Delete HoaDon_SanPham where id = '" + tbidDH + "'";
+                        cmd.ExecuteNonQuery();
                     }
                     finally
                     {
@@ -77,16 +96,48 @@ namespace QLCH
                 if (i == -1)
                 {
                     selectedSPs.Add(new SelectedSP() { Name = a.Name, ID = a.ID, Qty = Convert.ToInt32(tbSL.Text), Price = Convert.ToInt32(tbSL.Text) * a.Price });
-                } else
+                }
+                else
                 {
                     selectedSPs[i].Qty += sl;
                     selectedSPs[i].Price = selectedSPs[i].Qty * a.Price;
                 }
                 dataGridView1.DataSource = null;
                 dataGridView1.DataSource = selectedSPs;
-            } else
+            }
+            else
             {
                 MessageBox.Show("Số lượng không hợp lệ");
+            }
+        }
+
+        private void tbidDH_Leave(object sender, EventArgs e)
+        {
+            using (SqlConnection connection = new SqlConnection(cnt))
+            {
+                using (SqlCommand cmd = new SqlCommand() { })
+                {
+                    connection.Open();
+
+                    cmd.CommandText = "Select * from HoaDon";
+                    cmd.Connection = connection;
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        addedHoaDon.Add(reader["id"].ToString());
+                    }
+                    for (int i = 0; i < addedHoaDon.Count; i++)
+                    {
+                        addedHoaDon[i] = addedHoaDon[i].Trim();
+                    }
+                    if (addedHoaDon.FindIndex(x => x == tbidDH.Text) != -1)
+                    {
+                        MessageBox.Show("ID hóa đơn đã tồn tại");
+                        tbidDH.Text = "";
+                    }
+                    connection.Close();
+
+                }
             }
         }
     }

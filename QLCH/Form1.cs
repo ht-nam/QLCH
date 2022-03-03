@@ -76,7 +76,6 @@ namespace QLCH
                 conn = new SqlConnection(cnt);
                 conn.Open();
 
-                MessageBox.Show("a");
                 string query = "Select idHD as N'Mã hóa đơn', date as N'Ngày', sum(price * slSP) as N'Thành tiền' from HoaDon_SanPham hs join HoaDon hd on hs.idHD = hd.id join SanPham sp on hs.idSp = sp.id group by idHD, date";
                 //string query = "select * from HoaDon";
 
@@ -152,8 +151,8 @@ namespace QLCH
         {
             hd = new HoaDon(sanPhams);
             hd.ShowDialog();
-            //db.Clear();
-            //adapter.Fill(db);
+            db.Clear();
+            adapter.Fill(db);
         }
         private void button2_Click(object sender, EventArgs e)
         {
