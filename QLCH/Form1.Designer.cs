@@ -42,17 +42,8 @@
             this.tbPW = new System.Windows.Forms.TextBox();
             this.tbID = new System.Windows.Forms.TextBox();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
-            this.printPreviewDialog2 = new System.Windows.Forms.PrintPreviewDialog();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
-            this.printDocument2 = new System.Drawing.Printing.PrintDocument();
-            this.printDialog2 = new System.Windows.Forms.PrintDialog();
-            this.printPreviewDialog3 = new System.Windows.Forms.PrintPreviewDialog();
-            this.printDocument3 = new System.Drawing.Printing.PrintDocument();
-            this.printPreviewDialog4 = new System.Windows.Forms.PrintPreviewDialog();
-            this.printPreviewDialog5 = new System.Windows.Forms.PrintPreviewDialog();
-            this.printPreviewDialog6 = new System.Windows.Forms.PrintPreviewDialog();
-            this.printPreviewDialog7 = new System.Windows.Forms.PrintPreviewDialog();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -69,9 +60,9 @@
             this.panel2.Controls.Add(this.dataGridView1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(707, 420);
+            this.panel2.Size = new System.Drawing.Size(943, 517);
             this.panel2.TabIndex = 1;
             // 
             // button4
@@ -79,9 +70,10 @@
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.Image = global::QLCH.Properties.Resources.icons8_delete_64;
             this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(517, 233);
+            this.button4.Location = new System.Drawing.Point(689, 287);
+            this.button4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(119, 51);
+            this.button4.Size = new System.Drawing.Size(159, 63);
             this.button4.TabIndex = 4;
             this.button4.Text = "Xuất hóa đơn";
             this.button4.UseVisualStyleBackColor = false;
@@ -91,9 +83,10 @@
             // 
             this.button3.BackgroundImage = global::QLCH.Properties.Resources.icons8_cherry_blossom_48;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(625, 392);
+            this.button3.Location = new System.Drawing.Point(833, 482);
+            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(82, 28);
+            this.button3.Size = new System.Drawing.Size(109, 34);
             this.button3.TabIndex = 3;
             this.button3.Text = "Đăng xuất";
             this.button3.UseVisualStyleBackColor = true;
@@ -104,9 +97,10 @@
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Image = global::QLCH.Properties.Resources.icons8_delete_64;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(517, 143);
+            this.button2.Location = new System.Drawing.Point(689, 176);
+            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(119, 51);
+            this.button2.Size = new System.Drawing.Size(159, 63);
             this.button2.TabIndex = 2;
             this.button2.Text = "Xóa sản phẩm";
             this.button2.UseVisualStyleBackColor = false;
@@ -118,9 +112,10 @@
             this.button1.ForeColor = System.Drawing.Color.Black;
             this.button1.Image = global::QLCH.Properties.Resources.icons8_add_64;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(517, 58);
+            this.button1.Location = new System.Drawing.Point(689, 71);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(119, 51);
+            this.button1.Size = new System.Drawing.Size(159, 63);
             this.button1.TabIndex = 1;
             this.button1.Text = "Thêm sản phẩm";
             this.button1.UseVisualStyleBackColor = true;
@@ -135,13 +130,13 @@
             this.dataGridView1.BackgroundColor = System.Drawing.Color.RosyBrown;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(10, 11);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
+            this.dataGridView1.Location = new System.Drawing.Point(13, 14);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(434, 400);
+            this.dataGridView1.Size = new System.Drawing.Size(579, 492);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -157,19 +152,19 @@
             this.panel1.Controls.Add(this.tbID);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(707, 420);
+            this.panel1.Size = new System.Drawing.Size(943, 517);
             this.panel1.TabIndex = 0;
             // 
             // btLogin
             // 
             this.btLogin.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.btLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btLogin.Location = new System.Drawing.Point(116, 219);
-            this.btLogin.Margin = new System.Windows.Forms.Padding(2);
+            this.btLogin.Location = new System.Drawing.Point(155, 270);
+            this.btLogin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btLogin.Name = "btLogin";
-            this.btLogin.Size = new System.Drawing.Size(107, 26);
+            this.btLogin.Size = new System.Drawing.Size(143, 32);
             this.btLogin.TabIndex = 4;
             this.btLogin.Text = "Đăng nhập";
             this.btLogin.UseVisualStyleBackColor = false;
@@ -180,10 +175,9 @@
             this.lbPW.AutoSize = true;
             this.lbPW.BackColor = System.Drawing.Color.Transparent;
             this.lbPW.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPW.Location = new System.Drawing.Point(26, 143);
-            this.lbPW.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbPW.Location = new System.Drawing.Point(35, 176);
             this.lbPW.Name = "lbPW";
-            this.lbPW.Size = new System.Drawing.Size(75, 20);
+            this.lbPW.Size = new System.Drawing.Size(93, 25);
             this.lbPW.TabIndex = 3;
             this.lbPW.Text = "Mật khẩu";
             // 
@@ -192,31 +186,30 @@
             this.lbID.AutoSize = true;
             this.lbID.BackColor = System.Drawing.Color.Transparent;
             this.lbID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbID.Location = new System.Drawing.Point(26, 72);
-            this.lbID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbID.Location = new System.Drawing.Point(35, 89);
             this.lbID.Name = "lbID";
-            this.lbID.Size = new System.Drawing.Size(101, 20);
+            this.lbID.Size = new System.Drawing.Size(126, 25);
             this.lbID.TabIndex = 2;
             this.lbID.Text = "Mã cửa hàng";
             // 
             // tbPW
             // 
             this.tbPW.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbPW.Location = new System.Drawing.Point(38, 166);
-            this.tbPW.Margin = new System.Windows.Forms.Padding(2);
+            this.tbPW.Location = new System.Drawing.Point(51, 204);
+            this.tbPW.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbPW.Name = "tbPW";
             this.tbPW.PasswordChar = '*';
-            this.tbPW.Size = new System.Drawing.Size(164, 28);
+            this.tbPW.Size = new System.Drawing.Size(217, 34);
             this.tbPW.TabIndex = 1;
             this.tbPW.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbPW_KeyDown);
             // 
             // tbID
             // 
             this.tbID.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbID.Location = new System.Drawing.Point(38, 95);
-            this.tbID.Margin = new System.Windows.Forms.Padding(2);
+            this.tbID.Location = new System.Drawing.Point(51, 117);
+            this.tbID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbID.Name = "tbID";
-            this.tbID.Size = new System.Drawing.Size(164, 28);
+            this.tbID.Size = new System.Drawing.Size(217, 34);
             this.tbID.TabIndex = 0;
             this.tbID.Leave += new System.EventHandler(this.tbID_Leave);
             // 
@@ -231,90 +224,21 @@
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
             // 
-            // printPreviewDialog2
-            // 
-            this.printPreviewDialog2.AutoScrollMargin = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog2.AutoScrollMinSize = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog2.ClientSize = new System.Drawing.Size(400, 300);
-            this.printPreviewDialog2.Enabled = true;
-            this.printPreviewDialog2.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog2.Icon")));
-            this.printPreviewDialog2.Name = "printPreviewDialog2";
-            this.printPreviewDialog2.Visible = false;
-            // 
             // printDialog1
             // 
             this.printDialog1.UseEXDialog = true;
             // 
-            // printDialog2
-            // 
-            this.printDialog2.UseEXDialog = true;
-            // 
-            // printPreviewDialog3
-            // 
-            this.printPreviewDialog3.AutoScrollMargin = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog3.AutoScrollMinSize = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog3.ClientSize = new System.Drawing.Size(400, 300);
-            this.printPreviewDialog3.Enabled = true;
-            this.printPreviewDialog3.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog3.Icon")));
-            this.printPreviewDialog3.Name = "printPreviewDialog3";
-            this.printPreviewDialog3.Visible = false;
-            // 
-            // printDocument3
-            // 
-            this.printDocument3.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument3_PrintPage);
-            // 
-            // printPreviewDialog4
-            // 
-            this.printPreviewDialog4.AutoScrollMargin = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog4.AutoScrollMinSize = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog4.ClientSize = new System.Drawing.Size(400, 300);
-            this.printPreviewDialog4.Document = this.printDocument1;
-            this.printPreviewDialog4.Enabled = true;
-            this.printPreviewDialog4.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog4.Icon")));
-            this.printPreviewDialog4.Name = "printPreviewDialog4";
-            this.printPreviewDialog4.Visible = false;
-            // 
-            // printPreviewDialog5
-            // 
-            this.printPreviewDialog5.AutoScrollMargin = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog5.AutoScrollMinSize = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog5.ClientSize = new System.Drawing.Size(400, 300);
-            this.printPreviewDialog5.Document = this.printDocument1;
-            this.printPreviewDialog5.Enabled = true;
-            this.printPreviewDialog5.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog5.Icon")));
-            this.printPreviewDialog5.Name = "printPreviewDialog5";
-            this.printPreviewDialog5.Visible = false;
-            // 
-            // printPreviewDialog6
-            // 
-            this.printPreviewDialog6.AutoScrollMargin = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog6.AutoScrollMinSize = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog6.ClientSize = new System.Drawing.Size(400, 300);
-            this.printPreviewDialog6.Enabled = true;
-            this.printPreviewDialog6.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog6.Icon")));
-            this.printPreviewDialog6.Name = "printPreviewDialog6";
-            this.printPreviewDialog6.Visible = false;
-            // 
-            // printPreviewDialog7
-            // 
-            this.printPreviewDialog7.AutoScrollMargin = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog7.AutoScrollMinSize = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog7.ClientSize = new System.Drawing.Size(400, 300);
-            this.printPreviewDialog7.Enabled = true;
-            this.printPreviewDialog7.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog7.Icon")));
-            this.printPreviewDialog7.Name = "printPreviewDialog7";
-            this.printPreviewDialog7.Visible = false;
-            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(707, 420);
+            this.ClientSize = new System.Drawing.Size(943, 517);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "QLCH";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -339,17 +263,8 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
-        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog2;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.PrintDialog printDialog1;
-        private System.Drawing.Printing.PrintDocument printDocument2;
-        private System.Windows.Forms.PrintDialog printDialog2;
-        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog3;
-        private System.Drawing.Printing.PrintDocument printDocument3;
-        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog4;
-        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog5;
-        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog6;
-        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog7;
     }
 }
 
