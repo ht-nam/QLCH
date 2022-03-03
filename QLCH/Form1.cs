@@ -178,6 +178,8 @@ namespace QLCH
         {
             ID = dataGridView1.SelectedCells[0].OwningRow.Cells[0].Value.ToString();
             button2.Enabled = true;
+            tbShowID.Text = ID;
+            tbShowPr.Text = dataGridView1.SelectedCells[0].OwningRow.Cells[2].Value.ToString();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -205,5 +207,6 @@ namespace QLCH
             db.Clear();
             adapter.Fill(db);
         }
+
     }
 }

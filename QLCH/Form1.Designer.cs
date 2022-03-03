@@ -30,6 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tbShowID = new System.Windows.Forms.TextBox();
+            this.tbShowPr = new System.Windows.Forms.TextBox();
+            this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -53,6 +58,11 @@
             // 
             this.panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel2.BackgroundImage")));
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.tbShowID);
+            this.panel2.Controls.Add(this.tbShowPr);
+            this.panel2.Controls.Add(this.button5);
             this.panel2.Controls.Add(this.button4);
             this.panel2.Controls.Add(this.button3);
             this.panel2.Controls.Add(this.button2);
@@ -65,15 +75,69 @@
             this.panel2.Size = new System.Drawing.Size(943, 517);
             this.panel2.TabIndex = 1;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label2.Location = new System.Drawing.Point(814, 151);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(115, 25);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Thành tiền";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label1.Location = new System.Drawing.Point(814, 81);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(117, 25);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "ID hóa đơn";
+            // 
+            // tbShowID
+            // 
+            this.tbShowID.Enabled = false;
+            this.tbShowID.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbShowID.Location = new System.Drawing.Point(619, 104);
+            this.tbShowID.Name = "tbShowID";
+            this.tbShowID.Size = new System.Drawing.Size(298, 34);
+            this.tbShowID.TabIndex = 6;
+            this.tbShowID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // tbShowPr
+            // 
+            this.tbShowPr.Enabled = false;
+            this.tbShowPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbShowPr.Location = new System.Drawing.Point(619, 174);
+            this.tbShowPr.Name = "tbShowPr";
+            this.tbShowPr.Size = new System.Drawing.Size(298, 34);
+            this.tbShowPr.TabIndex = 5;
+            this.tbShowPr.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // button5
+            // 
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.Location = new System.Drawing.Point(779, 248);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(138, 65);
+            this.button5.TabIndex = 2;
+            this.button5.Text = "Sửa hóa đơn";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.Image = global::QLCH.Properties.Resources.icons8_delete_64;
             this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(689, 287);
-            this.button4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button4.Location = new System.Drawing.Point(779, 342);
+            this.button4.Margin = new System.Windows.Forms.Padding(4);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(159, 63);
+            this.button4.Size = new System.Drawing.Size(138, 65);
             this.button4.TabIndex = 4;
             this.button4.Text = "Xuất hóa đơn";
             this.button4.UseVisualStyleBackColor = false;
@@ -84,7 +148,7 @@
             this.button3.BackgroundImage = global::QLCH.Properties.Resources.icons8_cherry_blossom_48;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.Location = new System.Drawing.Point(833, 482);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(109, 34);
             this.button3.TabIndex = 3;
@@ -97,12 +161,12 @@
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Image = global::QLCH.Properties.Resources.icons8_delete_64;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(689, 176);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Location = new System.Drawing.Point(619, 342);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(159, 63);
+            this.button2.Size = new System.Drawing.Size(138, 65);
             this.button2.TabIndex = 2;
-            this.button2.Text = "Xóa sản phẩm";
+            this.button2.Text = "Xóa hóa đơn";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -112,12 +176,12 @@
             this.button1.ForeColor = System.Drawing.Color.Black;
             this.button1.Image = global::QLCH.Properties.Resources.icons8_add_64;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(689, 71);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Location = new System.Drawing.Point(619, 248);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(159, 63);
+            this.button1.Size = new System.Drawing.Size(138, 65);
             this.button1.TabIndex = 1;
-            this.button1.Text = "Thêm sản phẩm";
+            this.button1.Text = "Thêm hóa đơn";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -241,6 +305,7 @@
             this.Text = "QLCH";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -265,6 +330,11 @@
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.PrintDialog printDialog1;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.TextBox tbShowID;
+        private System.Windows.Forms.TextBox tbShowPr;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }
 
