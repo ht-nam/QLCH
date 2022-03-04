@@ -63,6 +63,46 @@ namespace QLCH.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _2840523 {
+            get {
+                object obj = ResourceManager.GetObject("2840523", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _5937125 {
+            get {
+                object obj = ResourceManager.GetObject("5937125", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap designbygemini_paints_palm_trees_in_millennial_pink_at_milan_design_week {
+            get {
+                object obj = ResourceManager.GetObject("designbygemini paints palm trees in millennial pink at milan design week", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Free_Vector___Neon_icon_of_mechanic_tools {
+            get {
+                object obj = ResourceManager.GetObject("Free Vector _ Neon icon of mechanic tools", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_add_100 {
             get {
                 object obj = ResourceManager.GetObject("icons8-add-100", resourceCulture);
@@ -133,9 +173,60 @@ namespace QLCH.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_print_50 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-print-50", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_repair_50 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-repair-50", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Lovely_Fluid_In_Soft_Pink_Background {
             get {
                 object obj = ResourceManager.GetObject("Lovely Fluid In Soft Pink Background", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Phone_Repair {
+            get {
+                object obj = ResourceManager.GetObject("Phone Repair", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap tải_xuống {
+            get {
+                object obj = ResourceManager.GetObject("tải xuống", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Tools_Icon_In_Neon_Style__Style_Icons__Neon_Icons__In_Icons_PNG_Transparent_Clipart_Image_and_PSD_File_for_Free_Download {
+            get {
+                object obj = ResourceManager.GetObject("Tools Icon In Neon Style, Style Icons, Neon Icons, In Icons PNG Transparent Clipa" +
+                        "rt Image and PSD File for Free Download", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

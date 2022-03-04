@@ -32,6 +32,7 @@ namespace QLCH
         Bitmap bitmap;
         System.Data.DataTable dt;
         string ID;
+        ChinhSua cs = new ChinhSua();
         List<SanPham> sanPhams = new List<SanPham>();
 
         public Form1()
@@ -71,8 +72,8 @@ namespace QLCH
             try
             {
                 //Nam: DESKTOP-KNN7K79
-                //Vinh: DESKTOP-IKJI0OQ\SQLEXPRESS
-                string cnt = "Data Source = DESKTOP-KNN7K79; Initial Catalog = QLCH; Integrated Security = True";
+                //Vinh: DESKTOP-IKJI0OQ\\SQLEXPRESS
+                string cnt = "Data Source = DESKTOP-IKJI0OQ\\SQLEXPRESS; Initial Catalog = QLCH; Integrated Security = True";
                 conn = new SqlConnection(cnt);
                 conn.Open();
 
@@ -200,13 +201,13 @@ namespace QLCH
             printPreviewDialog1.ShowDialog();
             dataGridView1.Height = height;
         }
-
         private void printDocument3_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            e.Graphics.DrawImage(bitmap, 0, 0);
-            db.Clear();
-            adapter.Fill(db);
         }
 
+        private void button5_Click(object sender, EventArgs e)
+        {
+            cs.ShowDialog();
+        }
     }
 }

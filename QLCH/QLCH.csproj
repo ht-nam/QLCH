@@ -69,6 +69,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChinhSua.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChinhSua.Designer.cs">
+      <DependentUpon>ChinhSua.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +90,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SanPham.cs" />
+    <EmbeddedResource Include="ChinhSua.resx">
+      <DependentUpon>ChinhSua.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -137,6 +146,33 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-cherry-blossom-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-print-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-repair-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tools Icon In Neon Style, Style Icons, Neon Icons, In Icons PNG Transparent Clipart Image and PSD File for Free Download.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tải xuống.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Free Vector _ Neon icon of mechanic tools.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\designbygemini paints palm trees in millennial pink at milan design week.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Phone Repair.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2840523.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\5937125.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />

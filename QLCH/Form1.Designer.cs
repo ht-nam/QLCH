@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -46,13 +49,25 @@
             this.lbID = new System.Windows.Forms.Label();
             this.tbPW = new System.Windows.Forms.TextBox();
             this.tbID = new System.Windows.Forms.TextBox();
-            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
-            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
-            this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Document = this.printDocument1;
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
+            // 
+            // printDialog1
+            // 
+            this.printDialog1.UseEXDialog = true;
             // 
             // panel2
             // 
@@ -70,9 +85,9 @@
             this.panel2.Controls.Add(this.dataGridView1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(943, 517);
+            this.panel2.Size = new System.Drawing.Size(707, 420);
             this.panel2.TabIndex = 1;
             // 
             // label2
@@ -81,9 +96,10 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.Location = new System.Drawing.Point(814, 151);
+            this.label2.Location = new System.Drawing.Point(610, 123);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(115, 25);
+            this.label2.Size = new System.Drawing.Size(94, 20);
             this.label2.TabIndex = 8;
             this.label2.Text = "Thành tiền";
             // 
@@ -93,9 +109,10 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(814, 81);
+            this.label1.Location = new System.Drawing.Point(610, 66);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(117, 25);
+            this.label1.Size = new System.Drawing.Size(98, 20);
             this.label1.TabIndex = 7;
             this.label1.Text = "ID hóa đơn";
             // 
@@ -103,9 +120,10 @@
             // 
             this.tbShowID.Enabled = false;
             this.tbShowID.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbShowID.Location = new System.Drawing.Point(619, 104);
+            this.tbShowID.Location = new System.Drawing.Point(464, 84);
+            this.tbShowID.Margin = new System.Windows.Forms.Padding(2);
             this.tbShowID.Name = "tbShowID";
-            this.tbShowID.Size = new System.Drawing.Size(298, 34);
+            this.tbShowID.Size = new System.Drawing.Size(224, 28);
             this.tbShowID.TabIndex = 6;
             this.tbShowID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -113,31 +131,35 @@
             // 
             this.tbShowPr.Enabled = false;
             this.tbShowPr.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbShowPr.Location = new System.Drawing.Point(619, 174);
+            this.tbShowPr.Location = new System.Drawing.Point(464, 141);
+            this.tbShowPr.Margin = new System.Windows.Forms.Padding(2);
             this.tbShowPr.Name = "tbShowPr";
-            this.tbShowPr.Size = new System.Drawing.Size(298, 34);
+            this.tbShowPr.Size = new System.Drawing.Size(224, 28);
             this.tbShowPr.TabIndex = 5;
             this.tbShowPr.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // button5
             // 
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(779, 248);
+            this.button5.Image = global::QLCH.Properties.Resources.icons8_repair_50;
+            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button5.Location = new System.Drawing.Point(584, 202);
+            this.button5.Margin = new System.Windows.Forms.Padding(2);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(138, 65);
+            this.button5.Size = new System.Drawing.Size(104, 53);
             this.button5.TabIndex = 2;
             this.button5.Text = "Sửa hóa đơn";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Image = global::QLCH.Properties.Resources.icons8_delete_64;
+            this.button4.Image = global::QLCH.Properties.Resources.icons8_print_50;
             this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(779, 342);
-            this.button4.Margin = new System.Windows.Forms.Padding(4);
+            this.button4.Location = new System.Drawing.Point(584, 278);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(138, 65);
+            this.button4.Size = new System.Drawing.Size(104, 53);
             this.button4.TabIndex = 4;
             this.button4.Text = "Xuất hóa đơn";
             this.button4.UseVisualStyleBackColor = false;
@@ -147,10 +169,9 @@
             // 
             this.button3.BackgroundImage = global::QLCH.Properties.Resources.icons8_cherry_blossom_48;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(833, 482);
-            this.button3.Margin = new System.Windows.Forms.Padding(4);
+            this.button3.Location = new System.Drawing.Point(625, 392);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(109, 34);
+            this.button3.Size = new System.Drawing.Size(82, 28);
             this.button3.TabIndex = 3;
             this.button3.Text = "Đăng xuất";
             this.button3.UseVisualStyleBackColor = true;
@@ -161,10 +182,9 @@
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Image = global::QLCH.Properties.Resources.icons8_delete_64;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(619, 342);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
+            this.button2.Location = new System.Drawing.Point(464, 278);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(138, 65);
+            this.button2.Size = new System.Drawing.Size(104, 53);
             this.button2.TabIndex = 2;
             this.button2.Text = "Xóa hóa đơn";
             this.button2.UseVisualStyleBackColor = false;
@@ -176,10 +196,9 @@
             this.button1.ForeColor = System.Drawing.Color.Black;
             this.button1.Image = global::QLCH.Properties.Resources.icons8_add_64;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(619, 248);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Location = new System.Drawing.Point(464, 202);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(138, 65);
+            this.button1.Size = new System.Drawing.Size(104, 53);
             this.button1.TabIndex = 1;
             this.button1.Text = "Thêm hóa đơn";
             this.button1.UseVisualStyleBackColor = true;
@@ -194,13 +213,13 @@
             this.dataGridView1.BackgroundColor = System.Drawing.Color.RosyBrown;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(13, 14);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dataGridView1.Location = new System.Drawing.Point(10, 11);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(579, 492);
+            this.dataGridView1.Size = new System.Drawing.Size(434, 400);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -216,19 +235,19 @@
             this.panel1.Controls.Add(this.tbID);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(943, 517);
+            this.panel1.Size = new System.Drawing.Size(707, 420);
             this.panel1.TabIndex = 0;
             // 
             // btLogin
             // 
             this.btLogin.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.btLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btLogin.Location = new System.Drawing.Point(155, 270);
-            this.btLogin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btLogin.Location = new System.Drawing.Point(116, 219);
+            this.btLogin.Margin = new System.Windows.Forms.Padding(2);
             this.btLogin.Name = "btLogin";
-            this.btLogin.Size = new System.Drawing.Size(143, 32);
+            this.btLogin.Size = new System.Drawing.Size(107, 26);
             this.btLogin.TabIndex = 4;
             this.btLogin.Text = "Đăng nhập";
             this.btLogin.UseVisualStyleBackColor = false;
@@ -239,9 +258,10 @@
             this.lbPW.AutoSize = true;
             this.lbPW.BackColor = System.Drawing.Color.Transparent;
             this.lbPW.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPW.Location = new System.Drawing.Point(35, 176);
+            this.lbPW.Location = new System.Drawing.Point(26, 143);
+            this.lbPW.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbPW.Name = "lbPW";
-            this.lbPW.Size = new System.Drawing.Size(93, 25);
+            this.lbPW.Size = new System.Drawing.Size(75, 20);
             this.lbPW.TabIndex = 3;
             this.lbPW.Text = "Mật khẩu";
             // 
@@ -250,56 +270,42 @@
             this.lbID.AutoSize = true;
             this.lbID.BackColor = System.Drawing.Color.Transparent;
             this.lbID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbID.Location = new System.Drawing.Point(35, 89);
+            this.lbID.Location = new System.Drawing.Point(26, 72);
+            this.lbID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbID.Name = "lbID";
-            this.lbID.Size = new System.Drawing.Size(126, 25);
+            this.lbID.Size = new System.Drawing.Size(101, 20);
             this.lbID.TabIndex = 2;
             this.lbID.Text = "Mã cửa hàng";
             // 
             // tbPW
             // 
             this.tbPW.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbPW.Location = new System.Drawing.Point(51, 204);
-            this.tbPW.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbPW.Location = new System.Drawing.Point(38, 166);
+            this.tbPW.Margin = new System.Windows.Forms.Padding(2);
             this.tbPW.Name = "tbPW";
             this.tbPW.PasswordChar = '*';
-            this.tbPW.Size = new System.Drawing.Size(217, 34);
+            this.tbPW.Size = new System.Drawing.Size(164, 28);
             this.tbPW.TabIndex = 1;
             this.tbPW.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbPW_KeyDown);
             // 
             // tbID
             // 
             this.tbID.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbID.Location = new System.Drawing.Point(51, 117);
-            this.tbID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbID.Location = new System.Drawing.Point(38, 95);
+            this.tbID.Margin = new System.Windows.Forms.Padding(2);
             this.tbID.Name = "tbID";
-            this.tbID.Size = new System.Drawing.Size(217, 34);
+            this.tbID.Size = new System.Drawing.Size(164, 28);
             this.tbID.TabIndex = 0;
             this.tbID.Leave += new System.EventHandler(this.tbID_Leave);
             // 
-            // printPreviewDialog1
-            // 
-            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
-            this.printPreviewDialog1.Document = this.printDocument1;
-            this.printPreviewDialog1.Enabled = true;
-            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
-            this.printPreviewDialog1.Name = "printPreviewDialog1";
-            this.printPreviewDialog1.Visible = false;
-            // 
-            // printDialog1
-            // 
-            this.printDialog1.UseEXDialog = true;
-            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(943, 517);
+            this.ClientSize = new System.Drawing.Size(707, 420);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "QLCH";
