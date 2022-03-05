@@ -30,9 +30,8 @@ namespace QLCH
         SqlCommand cmd = null;
         DataTable db = null;
         Bitmap bitmap;
-        System.Data.DataTable dt;
         string ID;
-        ChinhSua cs = new ChinhSua();
+        ChinhSua cs;
         List<SanPham> sanPhams = new List<SanPham>();
 
         public Form1()
@@ -73,7 +72,7 @@ namespace QLCH
             {
                 //Nam: DESKTOP-KNN7K79
                 //Vinh: DESKTOP-IKJI0OQ\\SQLEXPRESS
-                string cnt = "Data Source = DESKTOP-IKJI0OQ\\SQLEXPRESS; Initial Catalog = QLCH; Integrated Security = True";
+                string cnt = "Data Source = DESKTOP-KNN7K79; Initial Catalog = QLCH; Integrated Security = True";
                 conn = new SqlConnection(cnt);
                 conn.Open();
 
@@ -159,13 +158,12 @@ namespace QLCH
         {
             try
             {
-                conn.Open();
                 cmd = new SqlCommand("delete from HoaDon_SanPham where idHD = '" + ID + "'",conn);
                 cmd.ExecuteNonQuery();
                 cmd = new SqlCommand("delete from HoaDon where id = '" + ID + "'", conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
-                MessageBox.Show("Da xoa thanh cong ");
+                MessageBox.Show("Xóa hóa đơn thành công");
                 db.Clear();
                 adapter.Fill(db);
             }
@@ -179,7 +177,7 @@ namespace QLCH
         {
             ID = dataGridView1.SelectedCells[0].OwningRow.Cells[0].Value.ToString();
             button2.Enabled = true;
-            tbShowID.Text = ID;
+            tbShowID.Text = ID.Trim();
             tbShowPr.Text = dataGridView1.SelectedCells[0].OwningRow.Cells[2].Value.ToString();
         }
 
@@ -207,7 +205,17 @@ namespace QLCH
 
         private void button5_Click(object sender, EventArgs e)
         {
-            cs.ShowDialog();
+            if (tbShowID.Text == "")
+            {
+                MessageBox.Show("Bạn chưa chọn hóa đơn cần sửa");
+            }
+            else
+            {
+                cs = new ChinhSua(ID,sanPhams);
+                cs.ShowDialog();
+                db.Clear();
+                adapter.Fill(db);
+            }
         }
     }
 }

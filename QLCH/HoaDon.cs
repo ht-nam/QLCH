@@ -40,7 +40,7 @@ namespace QLCH
             this.Hide();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btSubmitHD_Click(object sender, EventArgs e)
         {
             //DateTime dt = DateTime.Now;
             //string da = dt.ToString("yyyy-MM-dd HH:mm:ss") ;
@@ -62,6 +62,7 @@ namespace QLCH
                         }
 
                         MessageBox.Show("Thêm hóa đơn thành công");
+                        button2.PerformClick();
                         selectedSPs.Clear();
                     }
                     catch (SqlException)
@@ -86,30 +87,6 @@ namespace QLCH
                 tbSL.Enabled = true;
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            bool check = int.TryParse(tbSL.Text, out int sl);
-            if (sl > 0 && check == true)
-            {
-                SanPham a = cbbTenHang.SelectedItem as SanPham;
-                int i = selectedSPs.FindIndex(sp => sp.Name == a.Name);
-                if (i == -1)
-                {
-                    selectedSPs.Add(new SelectedSP() { Name = a.Name, ID = a.ID, Qty = Convert.ToInt32(tbSL.Text), Price = Convert.ToInt32(tbSL.Text) * a.Price });
-                }
-                else
-                {
-                    selectedSPs[i].Qty += sl;
-                    selectedSPs[i].Price = selectedSPs[i].Qty * a.Price;
-                }
-                dataGridView1.DataSource = null;
-                dataGridView1.DataSource = selectedSPs;
-            }
-            else
-            {
-                MessageBox.Show("Số lượng không hợp lệ");
-            }
-        }
 
         private void tbidDH_Leave(object sender, EventArgs e)
         {
@@ -138,6 +115,49 @@ namespace QLCH
                     connection.Close();
 
                 }
+            }
+        }
+
+        private void tbSL_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btThemSP.PerformClick();
+            }
+        }
+
+        private void btXoaDS_Click(object sender, EventArgs e)
+        {
+            selectedSPs.Clear();
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = selectedSPs;
+        }
+
+        private void btThemSP_Click(object sender, EventArgs e)
+        {
+            
+            bool check = int.TryParse(tbSL.Text, out int sl);
+            if (sl > 0 && check == true)
+            {
+                SanPham a = cbbTenHang.SelectedItem as SanPham;
+                int i = selectedSPs.FindIndex(sp => sp.Name == a.Name);
+                if (i == -1)
+                {
+                    selectedSPs.Add(new SelectedSP() { Name = a.Name, ID = a.ID, Qty = Convert.ToInt32(tbSL.Text), Price = Convert.ToInt32(tbSL.Text) * a.Price });
+                }
+                else
+                {
+                    selectedSPs[i].Qty += sl;
+                    selectedSPs[i].Price = selectedSPs[i].Qty * a.Price;
+                }
+                dataGridView1.DataSource = null;
+                dataGridView1.DataSource = selectedSPs;
+                dataGridView1.AutoGenerateColumns = true;
+                dataGridView1.Columns["ID"].Visible = false;
+            }
+            else
+            {
+                MessageBox.Show("Số lượng không hợp lệ");
             }
         }
     }
