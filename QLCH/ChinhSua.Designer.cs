@@ -42,6 +42,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
+            this.lbPrice = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -51,6 +52,7 @@
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.BackgroundImage = global::QLCH.Properties.Resources._5937125;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel1.Controls.Add(this.lbPrice);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.btXoaDS);
             this.panel1.Controls.Add(this.btSubmitHD);
@@ -64,10 +66,11 @@
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Controls.Add(this.button1);
-            this.panel1.Location = new System.Drawing.Point(-1, -1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(560, 603);
+            this.panel1.Size = new System.Drawing.Size(559, 627);
             this.panel1.TabIndex = 0;
             // 
             // button2
@@ -99,7 +102,7 @@
             this.btSubmitHD.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btSubmitHD.ForeColor = System.Drawing.Color.ForestGreen;
             this.btSubmitHD.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btSubmitHD.Location = new System.Drawing.Point(209, 541);
+            this.btSubmitHD.Location = new System.Drawing.Point(209, 581);
             this.btSubmitHD.Margin = new System.Windows.Forms.Padding(4);
             this.btSubmitHD.Name = "btSubmitHD";
             this.btSubmitHD.Size = new System.Drawing.Size(148, 44);
@@ -228,12 +231,24 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // lbPrice
+            // 
+            this.lbPrice.BackColor = System.Drawing.Color.Transparent;
+            this.lbPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPrice.ForeColor = System.Drawing.Color.OrangeRed;
+            this.lbPrice.Location = new System.Drawing.Point(71, 541);
+            this.lbPrice.Name = "lbPrice";
+            this.lbPrice.Size = new System.Drawing.Size(418, 35);
+            this.lbPrice.TabIndex = 27;
+            this.lbPrice.Text = "Tổng cộng: 0";
+            this.lbPrice.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // ChinhSua
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(559, 597);
+            this.ClientSize = new System.Drawing.Size(559, 627);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -265,5 +280,6 @@
         private System.Windows.Forms.Button btXoaDS;
         private System.Windows.Forms.Button btSubmitHD;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label lbPrice;
     }
 }

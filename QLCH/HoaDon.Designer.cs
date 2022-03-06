@@ -41,6 +41,7 @@
             this.btSubmitHD = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.lbPrice = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -51,6 +52,7 @@
             this.panel1.BackgroundImage = global::QLCH.Properties.Resources.Lovely_Fluid_In_Soft_Pink_Background;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel1.Controls.Add(this.btXoaDS);
+            this.panel1.Controls.Add(this.lbPrice);
             this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Controls.Add(this.btThemSP);
             this.panel1.Controls.Add(this.tbSL);
@@ -182,7 +184,7 @@
             this.btSubmitHD.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btSubmitHD.ForeColor = System.Drawing.Color.ForestGreen;
             this.btSubmitHD.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btSubmitHD.Location = new System.Drawing.Point(187, 650);
+            this.btSubmitHD.Location = new System.Drawing.Point(187, 660);
             this.btSubmitHD.Margin = new System.Windows.Forms.Padding(4);
             this.btSubmitHD.Name = "btSubmitHD";
             this.btSubmitHD.Size = new System.Drawing.Size(148, 44);
@@ -214,6 +216,18 @@
             this.label1.Size = new System.Drawing.Size(229, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "HÓA ĐƠN BÁN HÀNG";
+            // 
+            // lbPrice
+            // 
+            this.lbPrice.BackColor = System.Drawing.Color.Transparent;
+            this.lbPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPrice.ForeColor = System.Drawing.Color.OrangeRed;
+            this.lbPrice.Location = new System.Drawing.Point(58, 621);
+            this.lbPrice.Name = "lbPrice";
+            this.lbPrice.Size = new System.Drawing.Size(405, 35);
+            this.lbPrice.TabIndex = 20;
+            this.lbPrice.Text = "Tổng cộng: 0";
+            this.lbPrice.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // HoaDon
             // 
@@ -250,5 +264,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btThemSP;
         private System.Windows.Forms.Button btXoaDS;
+        private System.Windows.Forms.Label lbPrice;
     }
 }

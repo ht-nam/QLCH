@@ -42,8 +42,16 @@ namespace QLCH
 
         private void btSubmitHD_Click(object sender, EventArgs e)
         {
-            //DateTime dt = DateTime.Now;
-            //string da = dt.ToString("yyyy-MM-dd HH:mm:ss") ;
+            if (tbidDH.Text == "")
+            {
+                MessageBox.Show("ID hóa đơn không được để trống");
+                return;
+            }
+            if (selectedSPs.Count == 0)
+            {
+                MessageBox.Show("Chưa có sản phẩm nào trong hóa đơn");
+                return;
+            }
             using (SqlConnection connection = new SqlConnection(cnt))
             {
                 string addHD = String.Format("INSERT into HoaDon (id, date) VALUES ('{0}', '{1}')", tbidDH.Text, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
@@ -135,7 +143,6 @@ namespace QLCH
 
         private void btThemSP_Click(object sender, EventArgs e)
         {
-            
             bool check = int.TryParse(tbSL.Text, out int sl);
             if (sl > 0 && check == true)
             {
@@ -150,6 +157,8 @@ namespace QLCH
                     selectedSPs[i].Qty += sl;
                     selectedSPs[i].Price = selectedSPs[i].Qty * a.Price;
                 }
+                lbPrice.Text = "Tổng cộng: " + (Convert.ToInt32(lbPrice.Text.Split(':').Last().Trim()) + Convert.ToInt32(tbSL.Text) * a.Price);
+                lbPrice.TextAlign = ContentAlignment.MiddleCenter;
                 dataGridView1.DataSource = null;
                 dataGridView1.DataSource = selectedSPs;
                 dataGridView1.AutoGenerateColumns = true;

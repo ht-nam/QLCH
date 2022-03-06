@@ -55,6 +55,8 @@ namespace QLCH
                     while (reader.Read())
                     {
                         addedSanPham.Add(new SelectedSP() { ID =reader["id"].ToString(), Name =reader["name"].ToString(), Qty = Convert.ToInt32(reader["slSP"].ToString()), Price = Convert.ToInt32(reader["price"].ToString()) * Convert.ToInt32(reader["slSP"].ToString()) });
+                        lbPrice.Text = "Tổng cộng: " + (Convert.ToInt32(lbPrice.Text.Split(':').Last().Trim()) + Convert.ToInt32(reader["price"].ToString()) * Convert.ToInt32(reader["slSP"].ToString()));
+                        lbPrice.TextAlign = ContentAlignment.MiddleCenter;
                     }
                     dataGridView1.DataSource=addedSanPham;
                     dataGridView1.AutoGenerateColumns = true;
@@ -79,6 +81,8 @@ namespace QLCH
 
         private void button2_Click(object sender, EventArgs e)
         {
+            lbPrice.Text = "Tổng cộng: " + (Convert.ToInt32(lbPrice.Text.Split(':').Last().Trim()) - Convert.ToInt32(dataGridView1.SelectedCells[0].OwningRow.Cells[3].Value));
+            lbPrice.TextAlign = ContentAlignment.MiddleCenter;
             addedSanPham.RemoveAt(dataGridView1.SelectedCells[0].OwningRow.Index);
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = addedSanPham;
@@ -93,6 +97,8 @@ namespace QLCH
             dataGridView1.DataSource = addedSanPham;
             dataGridView1.AutoGenerateColumns = true;
             dataGridView1.Columns["ID"].Visible = false;
+            lbPrice.Text = "Tổng cộng: 0";
+            lbPrice.TextAlign = ContentAlignment.MiddleCenter;
         }
 
         private void btThemSP_Click(object sender, EventArgs e)
@@ -111,6 +117,8 @@ namespace QLCH
                     addedSanPham[i].Qty += sl;
                     addedSanPham[i].Price = addedSanPham[i].Qty * a.Price;
                 }
+                lbPrice.Text = "Tổng cộng: " + (Convert.ToInt32(lbPrice.Text.Split(':').Last().Trim()) + Convert.ToInt32(tbSL.Text) * a.Price);
+                lbPrice.TextAlign = ContentAlignment.MiddleCenter;
                 dataGridView1.DataSource = null;
                 dataGridView1.DataSource = addedSanPham;
                 dataGridView1.AutoGenerateColumns = true;
@@ -130,6 +138,11 @@ namespace QLCH
 
         private void btSubmitHD_Click(object sender, EventArgs e)
         {
+            if (addedSanPham.Count == 0)
+            {
+                MessageBox.Show("Chưa có sản phẩm nào trong hóa đơn");
+                return;
+            }
             using (SqlConnection connection = new SqlConnection(cnt))
             {
                 try
@@ -139,10 +152,10 @@ namespace QLCH
 
                     foreach (SelectedSP sp in addedSanPham)
                     {
-                        string delHDSP = String.Format("delete HoaDon_SanPham where idHD = '{0}' and idSP = '{1}'",id,sp.ID);
+                        string delHDSP = String.Format("delete HoaDon_SanPham where idHD = '{0}' and idSP = '{1}'", id, sp.ID);
                         cmd.CommandText = delHDSP;
                         cmd.ExecuteNonQuery();
-                        string addHDSP = String.Format("INSERT into HoaDon_SanPham (idHD, idSP, slSP) VALUES ('{0}', '{1}', {2})", id, sp.ID,sp.Qty);
+                        string addHDSP = String.Format("INSERT into HoaDon_SanPham (idHD, idSP, slSP) VALUES ('{0}', '{1}', {2})", id, sp.ID, sp.Qty);
                         cmd.CommandText = addHDSP;
                         cmd.ExecuteNonQuery();
                     }
