@@ -15,7 +15,7 @@ namespace QLCH
     {
         //Nam: DESKTOP-KNN7K79
         //Vinh: DESKTOP-IKJI0OQ\SQLEXPRESS
-        string cnt = "Data Source = DESKTOP-KNN7K79; Initial Catalog = QLCH; Integrated Security = True";
+        string cnt = "Data Source = DESKTOP-IKJI0OQ\\SQLEXPRESS; Initial Catalog = QLCH; Integrated Security = True";
         List<SanPham> sanPhams = new List<SanPham>();
         List<SelectedSP> selectedSPs = new List<SelectedSP>();
         List<string> addedHoaDon = new List<string>();
