@@ -223,7 +223,7 @@ namespace QLCH
         {
             string cnt = "Data Source = DESKTOP-IKJI0OQ\\SQLEXPRESS; Initial Catalog = QLCH; Integrated Security = True";
             conn = new SqlConnection(cnt);
-            string query = "Select idHD, date, sum(price * slSP) from HoaDon_SanPham hs join HoaDon hd on hs.idHD = hd.id and idHD = '" + txt_search.Text + "' join SanPham sp on hs.idSp = sp.id group by idHD, date";
+            string query = "Select idHD, date, sum(price * slSP) from HoaDon_SanPham hs join HoaDon hd on hs.idHD = hd.id and idHD like '" + txt_search.Text + "' join SanPham sp on hs.idSp = sp.id group by idHD, date";
             conn.Open();
             cmd = new SqlCommand(query, conn);
             adapter = new SqlDataAdapter(query, conn);
