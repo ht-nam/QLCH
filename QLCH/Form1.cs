@@ -164,7 +164,6 @@ namespace QLCH
                 cmd.ExecuteNonQuery();
                 cmd = new SqlCommand("delete from HoaDon where id = '" + ID + "'", conn);
                 cmd.ExecuteNonQuery();
-                conn.Close();
                 MessageBox.Show("Xóa hóa đơn thành công");
                 db.Clear();
                 adapter.Fill(db);
