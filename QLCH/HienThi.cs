@@ -14,7 +14,7 @@ namespace QLCH
     {
         //Nam: DESKTOP-KNN7K79
         //Vinh: DESKTOP-IKJI0OQ\SQLEXPRESS
-        string cnt = "Data Source = DESKTOP-IKJI0OQ\\SQLEXPRESS; Initial Catalog = QLCH; Integrated Security = True";
+        string cnt = "Data Source = DESKTOP-KNN7K79; Initial Catalog = QLCH; Integrated Security = True";
         List<SelectedSP> addedSanPham = new List<SelectedSP>();
         private string id = "";
         private string loginID = "";
@@ -59,6 +59,7 @@ namespace QLCH
                     dataGridView1.DataSource = addedSanPham;
                     dataGridView1.AutoGenerateColumns = true;
                     dataGridView1.Columns["ID"].Visible = false;
+                    dataGridView1.Columns["Price"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                     connection.Close();
                 }
             }

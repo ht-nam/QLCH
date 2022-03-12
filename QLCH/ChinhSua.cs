@@ -62,6 +62,7 @@ namespace QLCH
                     dataGridView1.DataSource=addedSanPham;
                     dataGridView1.AutoGenerateColumns = true;
                     dataGridView1.Columns["ID"].Visible = false;
+                    dataGridView1.Columns["Price"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                     connection.Close();
                 }
             }
@@ -123,6 +124,7 @@ namespace QLCH
                 dataGridView1.DataSource = addedSanPham;
                 dataGridView1.AutoGenerateColumns = true;
                 dataGridView1.Columns["ID"].Visible = false;
+                dataGridView1.Columns["Price"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             }
             else
             {

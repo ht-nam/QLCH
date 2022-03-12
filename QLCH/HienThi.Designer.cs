@@ -29,6 +29,12 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.tbID = new System.Windows.Forms.Label();
             this.label_Name = new System.Windows.Forms.Label();
             this.lbPriceS = new System.Windows.Forms.Label();
@@ -38,12 +44,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -70,6 +70,66 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(382, 516);
             this.panel1.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(0, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(24, 23);
+            this.button1.TabIndex = 18;
+            this.button1.Text = "X";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // panel3
+            // 
+            this.panel3.BackgroundImage = global::QLCH.Properties.Resources.icons8_signature_30__1_;
+            this.panel3.Location = new System.Drawing.Point(72, 75);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(34, 27);
+            this.panel3.TabIndex = 17;
+            // 
+            // panel2
+            // 
+            this.panel2.BackgroundImage = global::QLCH.Properties.Resources.icons8_signature_301;
+            this.panel2.Location = new System.Drawing.Point(32, 70);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(30, 32);
+            this.panel2.TabIndex = 16;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Showcard Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Red;
+            this.label1.Location = new System.Drawing.Point(196, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(168, 18);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "HÓA ĐƠN BÁN HÀNG";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.Red;
+            this.label8.Location = new System.Drawing.Point(4, 130);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(375, 13);
+            this.label8.TabIndex = 14;
+            this.label8.Text = "---------------------------------------------------------------------------------" +
+    "-----------";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.Red;
+            this.label7.Location = new System.Drawing.Point(206, 90);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(74, 20);
+            this.label7.TabIndex = 13;
+            this.label7.Text = "thức uống";
             // 
             // tbID
             // 
@@ -160,6 +220,8 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToResizeColumns = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.LightGray;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.GridColor = System.Drawing.Color.Red;
@@ -167,66 +229,6 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(314, 344);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.Red;
-            this.label7.Location = new System.Drawing.Point(206, 90);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(74, 20);
-            this.label7.TabIndex = 13;
-            this.label7.Text = "thức uống";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.Red;
-            this.label8.Location = new System.Drawing.Point(4, 130);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(375, 13);
-            this.label8.TabIndex = 14;
-            this.label8.Text = "---------------------------------------------------------------------------------" +
-    "-----------";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Showcard Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(196, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(168, 18);
-            this.label1.TabIndex = 15;
-            this.label1.Text = "HÓA ĐƠN BÁN HÀNG";
-            // 
-            // panel3
-            // 
-            this.panel3.BackgroundImage = global::QLCH.Properties.Resources.icons8_signature_30__1_;
-            this.panel3.Location = new System.Drawing.Point(72, 75);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(34, 27);
-            this.panel3.TabIndex = 17;
-            // 
-            // panel2
-            // 
-            this.panel2.BackgroundImage = global::QLCH.Properties.Resources.icons8_signature_301;
-            this.panel2.Location = new System.Drawing.Point(32, 70);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(30, 32);
-            this.panel2.TabIndex = 16;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(0, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(24, 23);
-            this.button1.TabIndex = 18;
-            this.button1.Text = "X";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // HienThi
             // 

@@ -163,6 +163,7 @@ namespace QLCH
                 dataGridView1.DataSource = selectedSPs;
                 dataGridView1.AutoGenerateColumns = true;
                 dataGridView1.Columns["ID"].Visible = false;
+                dataGridView1.Columns["Price"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             }
             else
             {
