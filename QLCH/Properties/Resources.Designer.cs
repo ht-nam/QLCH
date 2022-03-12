@@ -193,6 +193,36 @@ namespace QLCH.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_signature_30 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-signature-30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_signature_30__1_ {
+            get {
+                object obj = ResourceManager.GetObject("icons8-signature-30 (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_signature_301 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-signature-301", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Lovely_Fluid_In_Soft_Pink_Background {
             get {
                 object obj = ResourceManager.GetObject("Lovely Fluid In Soft Pink Background", resourceCulture);

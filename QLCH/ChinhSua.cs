@@ -14,11 +14,12 @@ namespace QLCH
     public partial class ChinhSua : Form
     {
         private string id = "";
+        private string idName = "";
         //Nam: DESKTOP-KNN7K79
         //Vinh: DESKTOP-IKJI0OQ\SQLEXPRESS
-        string cnt = "Data Source = DESKTOP-KNN7K79; Initial Catalog = QLCH; Integrated Security = True";
-        List<SanPham> sanPhams = new List<SanPham>();
-        List<SelectedSP> addedSanPham = new List<SelectedSP>();
+        string cnt = "Data Source = DESKTOP-IKJI0OQ\\SQLEXPRESS; Initial Catalog = QLCH; Integrated Security = True";
+        List<SanPham> sanPhams = new List<SanPham>();//tất cả sp trong kho
+        List<SelectedSP> addedSanPham = new List<SelectedSP>();//Sản phẩm của hóa đơn
 
         public ChinhSua(string id, List<SanPham> sps)
         {
@@ -62,7 +63,6 @@ namespace QLCH
                     dataGridView1.AutoGenerateColumns = true;
                     dataGridView1.Columns["ID"].Visible = false;
                     connection.Close();
-
                 }
             }
         }

@@ -34,6 +34,7 @@
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
+            this.txt_search = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tbShowID = new System.Windows.Forms.TextBox();
@@ -50,7 +51,6 @@
             this.lbID = new System.Windows.Forms.Label();
             this.tbPW = new System.Windows.Forms.TextBox();
             this.tbID = new System.Windows.Forms.TextBox();
-            this.txt_search = new System.Windows.Forms.TextBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -103,6 +103,16 @@
             this.label3.Size = new System.Drawing.Size(224, 20);
             this.label3.TabIndex = 10;
             this.label3.Text = "Tìm kiếm theo mã hóa đơn:";
+            // 
+            // txt_search
+            // 
+            this.txt_search.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_search.Location = new System.Drawing.Point(246, 14);
+            this.txt_search.Margin = new System.Windows.Forms.Padding(2);
+            this.txt_search.Name = "txt_search";
+            this.txt_search.Size = new System.Drawing.Size(199, 28);
+            this.txt_search.TabIndex = 9;
+            this.txt_search.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label2
             // 
@@ -312,23 +322,13 @@
             this.tbID.TabIndex = 0;
             this.tbID.Leave += new System.EventHandler(this.tbID_Leave);
             // 
-            // txt_search
-            // 
-            this.txt_search.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_search.Location = new System.Drawing.Point(246, 14);
-            this.txt_search.Margin = new System.Windows.Forms.Padding(2);
-            this.txt_search.Name = "txt_search";
-            this.txt_search.Size = new System.Drawing.Size(199, 28);
-            this.txt_search.TabIndex = 9;
-            this.txt_search.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(707, 466);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel2);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -82,6 +82,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="HienThi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HienThi.Designer.cs">
+      <DependentUpon>HienThi.cs</DependentUpon>
+    </Compile>
     <Compile Include="HoaDon.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +102,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HienThi.resx">
+      <DependentUpon>HienThi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HoaDon.resx">
       <DependentUpon>HoaDon.cs</DependentUpon>
@@ -174,6 +183,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\5937125.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-signature-30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-signature-301.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-signature-30 %281%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
