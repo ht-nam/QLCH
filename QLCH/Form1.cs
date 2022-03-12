@@ -30,7 +30,7 @@ namespace QLCH
         SqlDataAdapter adapter = null;
         SqlCommand cmd = null;
         DataTable db = null;
-        Bitmap bitmap;
+        HienThi ht = null;
         string ID;
         ChinhSua cs;
         List<SanPham> sanPhams = new List<SanPham>();
@@ -73,7 +73,7 @@ namespace QLCH
             {
                 //Nam: DESKTOP-KNN7K79
                 //Vinh: DESKTOP-IKJI0OQ\\SQLEXPRESS
-                string cnt = "Data Source = DESKTOP-KNN7K79; Initial Catalog = QLCH; Integrated Security = True";
+                string cnt = "Data Source = DESKTOP-IKJI0OQ\\SQLEXPRESS; Initial Catalog = QLCH; Integrated Security = True";
                 conn = new SqlConnection(cnt);
                 conn.Open();
 
@@ -192,16 +192,17 @@ namespace QLCH
 
         private void button4_Click(object sender, EventArgs e)
         {
-            int height = dataGridView1.Height;
-            dataGridView1.Height = dataGridView1.RowCount * dataGridView1.RowTemplate.Height * 2;
-            bitmap = new Bitmap(dataGridView1.Width, dataGridView1.Height);
-            dataGridView1.DrawToBitmap(bitmap, new Rectangle(0, 0, dataGridView1.Width, dataGridView1.Height));
-            printPreviewDialog1.PrintPreviewControl.Zoom = 1;
-            printPreviewDialog1.ShowDialog();
-            dataGridView1.Height = height;
-        }
-        private void printDocument3_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
-        {
+            if (tbShowID.Text == "")
+            {
+                MessageBox.Show("Bạn chưa chọn hóa đơn cần sửa");
+            }
+            else
+            {
+                ht = new HienThi(ID, tbID.Text);
+                ht.ShowDialog();
+                db.Clear();
+                adapter.Fill(db);
+            }
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -221,7 +222,7 @@ namespace QLCH
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            string cnt = "Data Source = DESKTOP-KNN7K79; Initial Catalog = QLCH; Integrated Security = True";
+            string cnt = "Data Source = DESKTOP-IKJI0OQ\\SQLEXPRESS; Initial Catalog = QLCH; Integrated Security = True";
             conn = new SqlConnection(cnt);
             string query = "Select idHD, date, sum(price * slSP) from HoaDon_SanPham hs join HoaDon hd on hs.idHD = hd.id and idHD like '" + txt_search.Text + "%' join SanPham sp on hs.idSp = sp.id group by idHD, date";
             conn.Open();
