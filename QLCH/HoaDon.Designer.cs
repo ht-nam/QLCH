@@ -75,7 +75,7 @@
             this.btXoaDS.AutoSize = true;
             this.btXoaDS.ForeColor = System.Drawing.Color.Red;
             this.btXoaDS.Location = new System.Drawing.Point(293, 506);
-            this.btXoaDS.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btXoaDS.Margin = new System.Windows.Forms.Padding(2);
             this.btXoaDS.Name = "btXoaDS";
             this.btXoaDS.Size = new System.Drawing.Size(89, 23);
             this.btXoaDS.TabIndex = 19;
@@ -155,12 +155,12 @@
             // 
             // tbidDH
             // 
+            this.tbidDH.Enabled = false;
             this.tbidDH.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbidDH.Location = new System.Drawing.Point(175, 121);
             this.tbidDH.Name = "tbidDH";
             this.tbidDH.Size = new System.Drawing.Size(172, 26);
             this.tbidDH.TabIndex = 13;
-            this.tbidDH.Leave += new System.EventHandler(this.tbidDH_Leave);
             // 
             // label6
             // 
@@ -232,6 +232,7 @@
             this.Name = "HoaDon";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "HoaDon";
+            this.Load += new System.EventHandler(this.HoaDon_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

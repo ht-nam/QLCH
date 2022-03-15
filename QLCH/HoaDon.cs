@@ -15,10 +15,9 @@ namespace QLCH
     {
         //Nam: DESKTOP-KNN7K79
         //Vinh: DESKTOP-IKJI0OQ\SQLEXPRESS
-        string cnt = "Data Source = DESKTOP-IKJI0OQ\\SQLEXPRESS; Initial Catalog = QLCH; Integrated Security = True";
+        string cnt = "Data Source = DESKTOP-KNN7K79; Initial Catalog = QLCH; Integrated Security = True";
         List<SanPham> sanPhams = new List<SanPham>();
         List<SelectedSP> selectedSPs = new List<SelectedSP>();
-        List<string> addedHoaDon = new List<string>();
 
         public HoaDon(List<SanPham> sps)
         {
@@ -95,37 +94,6 @@ namespace QLCH
                 tbSL.Enabled = true;
         }
 
-
-        private void tbidDH_Leave(object sender, EventArgs e)
-        {
-            using (SqlConnection connection = new SqlConnection(cnt))
-            {
-                using (SqlCommand cmd = new SqlCommand() { })
-                {
-                    connection.Open();
-
-                    cmd.CommandText = "Select * from HoaDon";
-                    cmd.Connection = connection;
-                    SqlDataReader reader = cmd.ExecuteReader();
-                    while (reader.Read())
-                    {
-                        addedHoaDon.Add(reader["id"].ToString());
-                    }
-                    for (int i = 0; i < addedHoaDon.Count; i++)
-                    {
-                        addedHoaDon[i] = addedHoaDon[i].Trim();
-                    }
-                    if (addedHoaDon.FindIndex(x => x == tbidDH.Text) != -1)
-                    {
-                        MessageBox.Show("ID hóa đơn đã tồn tại");
-                        tbidDH.Text = "";
-                    }
-                    connection.Close();
-
-                }
-            }
-        }
-
         private void tbSL_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -168,6 +136,26 @@ namespace QLCH
             else
             {
                 MessageBox.Show("Số lượng không hợp lệ");
+            }
+        }
+
+        private void HoaDon_Load(object sender, EventArgs e)
+        {
+            using (SqlConnection connection = new SqlConnection(cnt))
+            {
+                using (SqlCommand cmd = new SqlCommand() { })
+                {
+                    connection.Open();
+
+                    cmd.CommandText = "Select * from HoaDon order by id desc";
+                    cmd.Connection = connection;
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    reader.Read();
+                    string lastID = reader["id"].ToString();
+                    tbidDH.Text = "HD" + (Convert.ToInt32(lastID.Substring(2, lastID.Length-2)) + 1);
+                    connection.Close();
+
+                }
             }
         }
     }
